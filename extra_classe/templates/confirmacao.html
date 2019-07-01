@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3> Pedido de Confirmação</h3>
+<ul>
+    {% for list in hora %}
+    <li>
+        <a> {{ list.disciplina }}  </a>
+        <a>/ {{ list.nome }}  -</a>
+        <a> {{ list.Confirmar }}  </a>
+    </li>
+    {% endfor %}
+
+
+{% endblock %}

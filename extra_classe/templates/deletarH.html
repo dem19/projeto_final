@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="panel panel-primary">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Tem certeza que deseja remover confirmação?</h2>
+        <button class="btn btn-danger" type="submit">Remover</button>
+
+    </form>
+
+{% endblock %}

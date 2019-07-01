@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ horas }}
+    <h2>Deseja salvar os horarios?
+    <button type="submit" class="btn btn-primary">Sim</button>  <button class="btn btn-primary" href="/professor/">Não</button></h2>
+</form>
+{% endblock %}
+
+
+
+

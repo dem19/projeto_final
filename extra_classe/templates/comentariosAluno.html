@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h3>Duvidas dos Alunos</h3>
+<ul>
+    {% for list in hora %}
+    <li>
+        <a> {{ list.nome_aluno }} / </a>
+        <a> {{ list.disciplina }} / </a>
+        <a> {{ list.duvidas }}  </a>
+    </li>
+    {% endfor %}
+
+
+{% endblock %}

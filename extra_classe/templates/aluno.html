@@ -1,0 +1,28 @@
+    
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+<h3>Horários Disponíveis</h3>
+<ul>
+    {% for list in hora %}
+
+    <li>
+        <a> {{ list.nome_professor }} / </a>
+        <a> {{ list.disciplina }} / </a>
+        <a> {{ list.data }} / </a>
+        <a> {{ list.hora }}  /</a>
+        <a class="btn btn-success"  href="{% url 'confirmar' list.id %}">Confirmar</a>
+
+</form>
+
+
+    </li>
+
+    {% endfor %}
+
+</ul>
+<a class="btn btn-info" href="/comentarios/">Dúvidas</a></ul>
+
+
+{% endblock %}

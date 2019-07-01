@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Horários Confirmados</h1>
+<ul>
+    {% for list in horario %}
+    <li>
+        <a> {{ list.nome_professor }} - </a>
+        <a> {{ list.disciplina }} - </a>
+        <a> {{ list.data }} - </a>
+        <a> {{ list.hora }}  </a>
+        <a class="btn btn-danger" href="{% url 'delete_h_marcado' list.id %}" > Deletar </a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

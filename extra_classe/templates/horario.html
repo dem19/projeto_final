@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h3>Marcar Horario</h3>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ horaM }}
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+{% endblock %}

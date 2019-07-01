@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>HTML DE BASE</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            {% load static %}
+                <link type="text/javascript" href="{%static 'cadastrojs.js' %}">
+                <link rel="stylesheet" href="{%static 'cadastrocss.css' %}">
+</head>
+<body>
+{% block content %}
+{% if user.is_authenticated %}
+Bem-vindo {{ user.username }}!
+<a class="btn btn-danger" href="{% url 'logout'%}"> Sair</a>
+{% else %}
+<a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}
+
+<h3>Horários disponíveis</h3>
+<form method="POST" enctype="multipart/form-data">
+
+
+<ul>
+    {% for list in hora %}
+    <li>
+        <a  class="btn btn-primary" href="{% url 'alterar_horario' list.id %}" > Alterar </a>
+        <a class="btn btn-danger" href="{% url 'deletar_horario' list.id %}" > Deletar </a>
+        <a> {{ list.nome_professor }} / </a>
+        <a> {{ list.disciplina }} / </a>
+        <a> {{ list.data }} / </a>
+        <a> {{ list.hora }}  -</a>
+        <a>Deseja confirma Horario - </a>
+        <a class="btn btn-success"  href="{% url 'salvar' list.id %}">Confirmar</a>
+
+    </li>
+    {% endfor %}
+
+
+</ul>
+<a class="btn btn-info" href="/cadastrar_horario/">Cadastrar Horários Disponíveis</a> </ul>
+    -
+<a class="btn btn-info" href="/mostrar/">Horários Confirmados</a> </ul>
+    -
+<a class="btn btn-info" href="/com_atendimento/">Solicitação de Confirmação</a> </ul>
+    -
+    <a class="btn btn-info" href="/comentario_alunos/">Duvidas dos alunos</a> </ul>
+
+</form>
+
+</body>
+</html>

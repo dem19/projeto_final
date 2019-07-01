@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Atendimento extra-classe</h1>
+<ul>
+    {% for list in horario %}
+    <li>
+        <a> {{ list.nome_professor }} - </a>
+        <a> {{ list.disciplina }} - </a>
+        <a> {{ list.data }} - </a>
+        <a> {{ list.hora }}  </a>
+    </li>
+    {% endfor %}
+</ul>
+<a class="btn btn-info" href="/aluno/">Aluno</a></ul>
+<a class="btn btn-info" {% if user.is_authenticated %} href="{% url 'professor' %}" {% else %} href="{% url 'login' %}" {% endif %}>Professor</a>
+
+{% endblock %}
+
+

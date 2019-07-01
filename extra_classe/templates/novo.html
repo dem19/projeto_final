@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a class="btn btn-link" href="/aluno/">Voltar</a>
+
+
+<form method="post">
+    <h1>Deseja confirmar o Horario?</h1>
+        {% csrf_token %}
+    {{ disp }}
+    <button type="submit">SIM</button>
+
+
+</form>
+{% endblock %}

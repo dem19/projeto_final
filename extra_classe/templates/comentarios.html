@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h3>Horarios disponiveis</h3>
+<ul>
+    {% for list in hora %}
+    <li>
+        <a class="btn btn-primary" href="{% url 'alterar_comentario' list.id %}" > Alterar</a>
+        <a> {{ list.nome_aluno }} / </a>
+        <a> {{ list.disciplina }} / </a>
+        <a> {{ list.duvidas }}  </a>
+        <a class="btn btn-danger" href="{% url 'deletar_comentario' list.id %}" > Deletar</a>
+    </li>
+    {% endfor %}
+
+        <a class="btn btn-info" href="/agenda_hora/">comentar</a>
+
+{% endblock %}
+
+
